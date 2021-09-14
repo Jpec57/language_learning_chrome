@@ -7,5 +7,34 @@
 	"background": {
 		"service_worker": "background.js"
 	},
-	"permissions": ["storage"]
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["listener.js"]
+	}],
+	"action": {
+		"default_popup": "views/html/popup.html",
+		"default_icon": {
+			"16": "/imgs/benkyou_icon.png",
+			"32": "/imgs/benkyou_icon.png",
+			"48": "/imgs/benkyou_icon.png",
+			"128": "/imgs/benkyou_icon.png"
+		}
+	},
+	"commands": {
+		"translate-command": {
+			"suggested_key": {
+			  "default": "Ctrl+Shift+Right",
+			  "mac": "Command+Shift+Right"
+			},
+			"description": "Translate"
+		  }
+	},
+	"options_page": "views/html/options.html",
+	"permissions": ["storage", "activeTab", "scripting", "contextMenus"	],
+	"icons": {
+		"16": "/imgs/benkyou_icon.png",
+		"32": "/imgs/benkyou_icon.png",
+		"48": "/imgs/benkyou_icon.png",
+		"128": "/imgs/benkyou_icon.png"	
+	}
 }

@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+#api-token-input {
+    margin: 20px 0;
+}
+
+input[type="submit"] {
+    width: fit-content;
+}
+
+.main-container {
+    padding: 5%;
+}
