@@ -1,0 +1,11 @@
+
+{
+	"name": "Language Learning Chrome Extension",
+	"description": "An application to quickly learn new words!",
+	"version": "1.0",
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": ["storage"]
+}
