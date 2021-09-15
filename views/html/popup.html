@@ -3,12 +3,56 @@
 
 <head>
   <link rel="stylesheet" href="../css/button.css">
+  <link rel="stylesheet" href="../css/popup.css">
 </head>
 
 <body>
-  <h2>Selected text</h2>
-  <span class="selected-text"></span>
-  <button id="configurate-extension"></button>
+
+  <h1>Learning Language App</h1>
+
+  <h2>Create a new card</h2>
+
+  <form id="create-card-form">
+    <div class="form-field">
+      <label for="wordToTranslate">Word to translate*</label>
+      <input type="text" name="wordToTranslate" required />
+      <div>
+        <span class="tips">You can also directly select the word you are interested in and use the right click to fill
+          this box.</span>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="alternativeWriting">Alternative writing</label>
+      <input type="text" name="alternativeWriting" />
+    </div>
+    <!-- <div class="form-field">
+      <label for="alternativeWriting">Alternative writing</label>
+      <input type="text" name="wordToTranslate" />
+    </div> -->
+    <div class="form-field">
+      <label for="translations">Translations*</label>
+      <input type="text" name="translations" required />
+    </div>
+    <div class="form-field">
+      <label for="userNotes">Notes</label>
+      <textarea name="userNotes" placeholder="Give maybe a context or an example in which the word is used."></textarea>
+    </div>
+    <input type="submit" id="create-card" value="Create card" />
+  </form>
+
+
+
+  <h2>Configuration</h2>
+
+  <div>
+    <span class="tips">
+      Before using the extension, you have to
+    </span>
+  </div>
+
+
+  <button id="configurate-extension">Configure...</button>
+
   <script src="../js/popup.js"></script>
 </body>
 

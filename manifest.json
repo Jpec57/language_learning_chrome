@@ -11,6 +11,12 @@
 		"matches": ["<all_urls>"],
 		"js": ["listener.js"]
 	}],
+	"web_accessible_resources": [
+		{
+			"resources": [ "*.js", "*.html", "*.css" ],
+			"matches": ["<all_urls>"]
+		}
+	],
 	"action": {
 		"default_popup": "views/html/popup.html",
 		"default_icon": {

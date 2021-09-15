@@ -16,23 +16,25 @@ chrome.runtime.onInstalled.addListener(() => {
 
 
 
-chrome.contextMenus.onClicked.addListener(function (infos) {
-    console.log("selectionText", infos.selectionText);
-    console.log("pageUrl", infos.pageUrl);
-    if (infos.menuItemId === "translate_context_action" && infos.selectionText) {
-        console.log("SELECTED ", infos.selectionText);
-        const url = "https://learning-language.jpec.be/";
+chrome.contextMenus.onClicked.addListener(async function (infos) {
+    const selectionText = infos.selectionText;
 
-        fetch(url, {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json; charset=utf-8"
-                },
-                mode: "no-cors",
-                body: JSON.stringify(json)
-            })
-            .then(resp => console.log(resp));
-        // do something
+    if (infos.menuItemId === "translate_context_action" && selectionText) {
+        const source = infos.pageUrl;
+        console.log("selectionText", selectionText);
+        console.log("pageUrl", source);
+        // const popUp = await chrome.action.getPopup();
+        // console.log(popUp);
+        chrome.tabs.create({
+            url: chrome.runtime.getURL('views/html/popup.html'),
+            active: false
+        }, function (tab) {
+            // After the tab has been created, open a window to inject the tab
+            chrome.windows.create({
+                tabId: tab.id,
+                type: 'popup',
+                focused: true
+            });
+        });
     }
 });

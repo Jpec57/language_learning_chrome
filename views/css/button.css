@@ -1,10 +1,17 @@
+/*
+ static const darkJungleGreen = #1F2421;
+  static const skobeloff = #216869;
+  static const shinyShamrock = #49A078;
+  static const etonBlue = #9CC5A1;
+  static const gainsboro = #DCE1DE;
+*/
 button {
-    height: 30px;
-    width: 30px;
+    color: white;
     outline: none;
-    margin: 10px;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #1F2421;
     cursor: pointer;
 }
 
