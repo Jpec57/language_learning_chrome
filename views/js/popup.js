@@ -1,5 +1,10 @@
 let configurateButton = document.getElementById("configurate-extension");
+let configContainer = document.querySelector("configuration-hint-container");
 const baseUrl = "https://learning-language.jpec.be/";
+
+//Wait for domloaded to check if token is 
+//registered. If not, remove hidden to .configuration-hint-container
+//and add it to .create-card-container
 
 configurateButton.addEventListener("click", async () => {
     chrome.runtime.openOptionsPage();
