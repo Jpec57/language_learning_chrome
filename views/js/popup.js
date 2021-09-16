@@ -24,7 +24,10 @@ const testGet = () => {
 
 const sendVocabCard = (form) => {
     var formData = new FormData(form);
-    console.log(formData);
+    console.log("formData");
+    for (var pair of formData.entries()) {
+        console.log(pair[0] + ', |' + pair[1] + '|');
+    }
     fetch(baseUrl, {
             method: "POST",
             headers: {
@@ -93,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (submitButton) {
         submitButton.addEventListener("click", (event) => {
             event.preventDefault();
-            console.log("Submitting");
             sendVocabCard(submitButton.closest("form"));
         });
     }
