@@ -2,17 +2,25 @@
 <html>
 
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../css/button.css">
   <link rel="stylesheet" href="../css/popup.css">
+  <link rel="stylesheet" href="../css/common.css">
 </head>
 
 <body>
 
-  <h1>Learning Language App</h1>
+  <div class="row">
+    <div style="margin-right: 1rem;">
+      <img src="../../imgs/benkyou_icon.png" alt="logo" height="50px" width="50px" />
+    </div>
+    <div>
+      <h1>Learning Language App</h1>
+    </div>
+  </div>
 
 
-
-  <div class="configuration-hint-container hidden">
+  <div class="configuration-hint-container">
     <h2>Configuration</h2>
 
     <div>
@@ -23,13 +31,26 @@
     <button id="configurate-extension">Configure...</button>
   </div>
 
-  <div class="create-card-container">
+  <div class="create-card-container hidden">
     <h2>Create a new card</h2>
 
     <form id="create-card-form">
+
+      <div class="form-field row locales-container">
+        <div>
+          <img src="../../imgs/de.png" alt="source locale flag" class="flag" />
+          <input type="hidden" id="sourceLocale" name="fromLanguageLocale" val="" required />
+        </div>
+        <span class="exchange-arrow">&#8644;</span>
+        <div>
+          <img src="../../imgs/ja.png" alt="source locale flag" class="flag" />
+          <input type="hidden" id="targetLocale" name="goalLanguageLocale" val="" required />
+        </div>
+      </div>
+
       <div class="form-field">
         <label for="wordToTranslate">Word to translate*</label>
-        <input type="text" name="wordToTranslate" required />
+        <input type="text" id="wordToTranslate" name="wordToTranslate" required />
         <div>
           <span class="tips">You can also directly select the word you are interested in and use the right click to fill
             this box.</span>
@@ -37,19 +58,34 @@
       </div>
       <div class="form-field">
         <label for="alternativeWriting">Alternative writing</label>
-        <input type="text" name="alternativeWriting" />
+        <input type="text" name="alternativeWriting" placeholder="カタカナ / ひらがな" />
+        <div>
+          <span class="tips">
+            Is there another alphabet you can write this word in ? In Japanese for instance, you can write a
+            word using kanji, but also using hiragana or katakana.
+          </span>
+        </div>
       </div>
-      <!-- <div class="form-field">
-        <label for="alternativeWriting">Alternative writing</label>
-        <input type="text" name="wordToTranslate" />
-      </div> -->
-      <div class="form-field">
+
+      <div class="form-field input-container" data-type="translations">
         <label for="translations">Translations*</label>
-        <input type="text" name="translations" required />
+        <input type="text" name="translations[0]" required value="toto" />
+        <button class="add-input">
+          <img src="../../imgs/plus-solid.svg" alt="add tag icon" />
+          Add
+        </button>
+      </div>
+      <div class="form-field input-container" data-type="tags">
+        <label for="tags">Tags</label>
+        <input type="text" name="tags[0]" />
+        <button class="add-input">
+          <img src="../../imgs/plus-solid.svg" alt="add tag icon" />
+          Add
+        </button>
       </div>
       <div class="form-field">
         <label for="userNotes">Notes</label>
-        <textarea name="userNotes"
+        <textarea name="userNotes" rows="5"
           placeholder="Give maybe a context or an example in which the word is used."></textarea>
       </div>
       <input type="submit" id="create-card" value="Create card" />

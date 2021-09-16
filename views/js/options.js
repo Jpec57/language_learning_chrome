@@ -9,16 +9,15 @@ const setApiToken = (apiToken) => {
     document.getElementById("current-token").innerText = apiToken;
 }
 
-///
-/// LISTENERS
-///
-
-document.getElementById("submit-token").addEventListener("click", (event) => {
-    event.preventDefault();
-    setApiToken(document.getElementById("api-token-input").value);
-});
 
 document.addEventListener("DOMContentLoaded", ()=> {
     getApiToken();
+    ///
+    /// LISTENERS
+    ///
+    document.getElementById("submit-token").addEventListener("click", (event) => {
+        event.preventDefault();
+        setApiToken(document.getElementById("api-token-input").value);
+    });
 });
 

@@ -2,9 +2,6 @@ let apiToken = "";
 
 
 chrome.runtime.onInstalled.addListener(() => {
-    // chrome.contextMenus.removeAll(function () {
-
-    // });
     chrome.contextMenus.create({
         id: "translate_context_action",
         title: "Translate in...",
@@ -21,20 +18,16 @@ chrome.contextMenus.onClicked.addListener(async function (infos) {
 
     if (infos.menuItemId === "translate_context_action" && selectionText) {
         const source = infos.pageUrl;
-        console.log("selectionText", selectionText);
         console.log("pageUrl", source);
-        // const popUp = await chrome.action.getPopup();
-        // console.log(popUp);
+        await chrome.storage.sync.set({
+            lastSelectedText: selectionText
+        });
         chrome.tabs.create({
             url: chrome.runtime.getURL('views/html/popup.html'),
-            active: false
+            active: true
         }, function (tab) {
-            // After the tab has been created, open a window to inject the tab
-            chrome.windows.create({
-                tabId: tab.id,
-                type: 'popup',
-                focused: true
-            });
         });
+        // chrome.tts
+        //chrome.notifications https://developer.chrome.com/docs/extensions/reference/#:~:text=New%20Tab%20page.-,notifications,-Use%20the%20chrome
     }
 });
